@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+	<meta charset = "UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+	<title>Giphy API</title>
+
+	<!--Meyer reset-->
+	<link rel="stylesheet" type="text/css" href="assets/css/reset.css">
+	<!--Bootstrap -->
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
+	<!--Google Fonts-->
+	<link href="https://fonts.googleapis.com/css?family=Special+Elite" rel="stylesheet">
+	<!--Font Awesome-->
+    <script src="https://use.fontawesome.com/5f1f3cb4d3.js"></script>
+	<!--custom css-->
+	<link rel="stylesheet" type="text/css" href="assets/css/style.css">
+	<!--jQuery-->
+	<script src="https://code.jquery.com/jquery-2.2.3.js" integrity="sha256-laXWtGydpwqJ8JA+X9x2miwmaiKhn8tVmOVEigRNtP4=" crossorigin="anonymous"></script>
+
+	
+</head>
+<body>
+
+	<!-- Header, if any -->
+
+	<div class = "container" id="header"></div>
+
+	<!-- category buttons -->
+
+	<div class = "container" id="categories">
+
+		<div class = "row">
+
+		</div>
+
+	</div>
+
+	<!-- main content -->
+
+	<div class = "container">
+
+		<div class = "row">
+
+			<!-- search form -->
+
+			<div class = "panel col-xs-12 col-sm-12 col-md-3 col-md-push-9 col-lg-2 col-lg-push-10" id = "search-panel">
+
+				<div class = "form-group" id="search-form">
+					
+					<input class = "form-control">
+
+					<button></button>
+
+				</div>
+
+			</div>
+
+
+			<!-- results block -->
+
+			<div class = "col-xs-12 col-sm-12 col-md-9 col-md-pull-3 col-lg-10 col-lg-pull-2">
+
+			</div>
+
+
+			<!--scroll buttons -->
+			
+			<div id = "scroll-buttons">
+				<div class = "scroll" id = "top"></div>
+				<div class = "scroll" id = "down"></div>
+			</div>
+
+			<!-- Loading Bar ???? Do I want this? -->
+
+			<div id = "loading"></div>
+
+		</div>
+
+	</div>
+
+	<!-- FOOTER??? Maybe better to have info in the header or elsewhere -->
+
+<script src="assets/js/giphyAjax.js"></script>
+
+</body>
+</html>
