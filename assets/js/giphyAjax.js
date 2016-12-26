@@ -54,28 +54,25 @@ function renderButtons() {
 $(document).on("click", "#submit-button", function(event) {
 	event.preventDefault();
 	$(".alert").remove();
+	//get search term and save to a variable
+	let term = $("#search-text").val().trim();
+	$("#search-text").val(''); //clear search form
 
 	//validate user input
-	if (buttonList.indexOf($("#search-text").val().trim().replace(" ", "")) === -1) {
+	if (buttonList.indexOf(term) === -1 && term !== '') {
+
+		callAPI(2, term); //make ajax call
 		
-		let term = $("#search-text").val().trim();
-
-		$("#search-text").val(''); //clear search form
-
 		buttonList.push(term); //add to buttons
 
 		renderButtons(); //should I create a function to add a single button instead?
 		
-		callAPI(2, term); //make ajax call
-
 	} else {
 		//alert user
 		$("#search-form").append($("<div>")
 			.addClass("alert alert-danger")
 			.attr("role", "alert")
 			.text("Please Enter a Different Term"));
-		//clear search form
-		$("#search-text").val('');
 	}
 });
 
