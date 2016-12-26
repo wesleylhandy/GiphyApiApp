@@ -1,3 +1,81 @@
 /*giphy key = dc6zaTOxFJmzC*/
 
-/*Color Palette*/
+/*
+
+	Color Palette
+
+dark blue: #005689;
+light blue: #007CB9;
+gold: #F6C667;
+slightly off-white: #F1F8FD;
+
+*/
+html {
+	min-height: 100%;
+}
+
+body {
+	background: linear-gradient(blue, green, orange);
+	height: 100%;
+}
+
+#header {
+	margin-top: 0.5em;
+	border-top: 3px white solid;
+	border-bottom: 3px white solid;
+}
+
+.categories {
+	margin: 0.5em;
+	text-shadow: 0px 0px 2px white, 0px 0px 1px black, 0px 0px 2px white;
+	font-size: 1.5em;
+}
+
+#search-panel {
+	background-color: inherit;
+	color: white; 
+}
+
+.alert {
+	margin-top: 0.25em;
+}
+
+.h3 {
+	text-decoration: underline;
+}
+
+h5 {
+	margin: 1em;
+}
+
+li {
+	margin-bottom: 0.125em;
+}
+
+.result {
+	margin: 1.5em;
+}
+
+.footer {
+	margin-top: 1em;
+	padding-top: 1em;
+	width: 100%;
+	background-color: inherit;
+	border-top: 3px white solid;
+	color: white;
+}
+
+.footer a:link {
+    text-decoration: none;
+    color: white;
+    font-size: 2em;
+}
+
+.footer a:hover {
+	filter: drop-shadow(0.063em 0.063em 0em orange);
+}
+
+.footer a:visited {
+    text-decoration: none;
+    color: white;
+}
