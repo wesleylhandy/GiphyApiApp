@@ -15,7 +15,7 @@ html {
 }
 
 body {
-	background: linear-gradient(blue, green, orange);
+	background: linear-gradient(black, brown, gray);
 	height: 100%;
 }
 
@@ -36,6 +36,10 @@ body {
 	color: white; 
 }
 
+#search-form {
+	padding-top: 1em;
+}
+
 .alert {
 	margin-top: 0.25em;
 }
@@ -49,7 +53,7 @@ h5 {
 }
 
 li {
-	margin-bottom: 0.125em;
+	margin-bottom: 0.25em;
 }
 
 .result {
