@@ -14,9 +14,9 @@ var key = "&api_key=dc6zaTOxFJmzC";
 //three differnt endpoints per type of searches
 
 var endPoints = [
-	"http://api.giphy.com/v1/stickers/search?q=", //sticky
-	"http://api.giphy.com/v1/gifs/trending?", //trending
-	"http://api.giphy.com/v1/gifs/search?q=" //standard
+	"https://api.giphy.com/v1/stickers/search?q=", //sticky
+	"https://api.giphy.com/v1/gifs/trending?", //trending
+	"https://api.giphy.com/v1/gifs/search?q=" //standard
 ];
 
 //two different parameters combined into one variable
