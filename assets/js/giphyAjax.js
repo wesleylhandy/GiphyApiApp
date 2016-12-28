@@ -166,7 +166,7 @@ function callAPI(epIndex, term) {
 
 			//console.log(color);
 			//append this element to DOM
-			let wrapper = $("<div>").addClass("result-col");
+			let wrapper = $("<div>").addClass("result-wrapper");
 
 			let image = $("<img>")
 				.addClass("img-rounded img-responsive result")
