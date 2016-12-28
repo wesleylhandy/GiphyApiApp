@@ -66,15 +66,15 @@ $(document).on("click", "#submit-button", function(event) {
 	//get search term and save to a variable
 	let term = $("#search-text").val()
 		.trim()
-		.replace(/\s/g,"+")
-		.replace(/[^A-Za-z0-9+]/g,"")
+		.replace(/\s/g,"+") //convert spaces to +
+		.replace(/[^A-Za-z0-9+]/g,"") //remove punctuation, etc
 		.toLowerCase();
 
 	$("#search-text").val(''); //clear search form
 
 	//validate user input
 	if (buttonList.indexOf(term) === -1 
-		&& (term !== '' && term !== "+")) {
+		&& (term !== '' && term.match(/[A-Za-z0-9]/))) {
 
 		callAPI(2, term); //make ajax call
 		
@@ -85,10 +85,21 @@ $(document).on("click", "#submit-button", function(event) {
 	} else {
 
 		//alert user
-		$("#search-form").append($("<div>")
-			.addClass("alert alert-danger")
-			.attr("role", "alert")
-			.text("Please Enter a Different Term"));
+		if (term === '' || term.match(/[^A-Za-z0-9]/)) {
+
+			//invalid entry alert
+			$("#search-form").append($("<div>")
+				.addClass("alert alert-danger")
+				.attr("role", "alert")
+				.text("Please Enter a Valid Term"));
+		} else {
+		
+			//Duplicate term alert
+			$("#search-form").append($("<div>")
+				.addClass("alert alert-danger")
+				.attr("role", "alert")
+				.text("Duplicate: Please Enter a New Term"));
+		}
 	}
 });
 
