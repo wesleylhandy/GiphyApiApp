@@ -50,7 +50,7 @@ function renderButtons(arr) {
 
     	//add buttons to DOM
       	$("#categories").append($("<button>")
-	      	.text(arr[i].replace("+", " "))
+	      	.text(arr[i].replace(/[+]/g, " "))
 	      	.addClass("btn btn-default categories")
 	      	.data("term", arr[i])
 	      	.css("background-color", color));
@@ -66,15 +66,15 @@ $(document).on("click", "#submit-button", function(event) {
 	//get search term and save to a variable
 	let term = $("#search-text").val()
 		.trim()
-		.replace(" ","+")
-		.replace(/[^A-Za-z0-9_+]/g,"")
+		.replace(/\s/g,"+")
+		.replace(/[^A-Za-z0-9+]/g,"")
 		.toLowerCase();
 
 	$("#search-text").val(''); //clear search form
 
 	//validate user input
 	if (buttonList.indexOf(term) === -1 
-		&& (term !== '' && term !== "+" && term !== "_")) {
+		&& (term !== '' && term !== "+")) {
 
 		callAPI(2, term); //make ajax call
 		
@@ -134,7 +134,8 @@ function callAPI(epIndex, term) {
 		}
 
 		//tell user what results are currently displayed
-		$("#results").append($("<h5>").text("Now Showing: " + term.toUpperCase())
+		$("#results").append($("<h5>")
+			.text("Now Showing: " + term.toUpperCase().replace(/[+]/g," "))
 			.css("color", "white"));
 
 		//add new elements to DOM
