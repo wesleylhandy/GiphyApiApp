@@ -152,7 +152,7 @@ function callAPI(epIndex, term) {
 			let wrapper = $("<div>").addClass("col-xs-12 col-sm-12 col-md-6 col-lg-4 result-col clearfix");
 
 			let image = $("<img>")
-				.addClass("img-responsive result")
+				.addClass("img-rounded img-responsive result")
 				.attr("src", response.data[x].images.fixed_height_still.url)
 				.css("border", "4px solid " + color)
 				.data("orig", response.data[x].images.fixed_height_still.url)
