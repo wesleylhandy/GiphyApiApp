@@ -80,8 +80,7 @@ $(document).on("click", "#submit-button", function(event) {
 		
 		buttonList.push(term); //add to buttons
 
-		let arr = [term];
-		renderButtons(arr); 
+		renderButtons([term]); 
 		
 	} else {
 
