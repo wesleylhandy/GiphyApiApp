@@ -134,7 +134,11 @@ function callAPI(epIndex, term) {
 		console.log(response);
 
 		//empty current contents of screen to add new gifs
-		$("#results").empty();
+		$(".res-alert").remove();
+		$(".showing").remove();
+		$("#res0").empty();
+		$("#res1").empty();
+		$("#res2").empty();
 
 		// set to trending if...
 			//on opening screen
@@ -145,7 +149,8 @@ function callAPI(epIndex, term) {
 		}
 
 		//tell user what results are currently displayed
-		$("#results").append($("<h5>")
+		$("#results").prepend($("<h5>")
+			.addClass("showing")
 			.text("Now Showing: " + term.toUpperCase().replace(/[+]/g," "))
 			.css("color", "white"));
 
@@ -161,14 +166,14 @@ function callAPI(epIndex, term) {
 
 			//console.log(color);
 			//append this element to DOM
-			let wrapper = $("<div>").addClass("col-xs-12 col-sm-12 col-md-6 col-lg-4 result-col clearfix");
+			let wrapper = $("<div>").addClass("result-col");
 
 			let image = $("<img>")
 				.addClass("img-rounded img-responsive result")
-				.attr("src", response.data[x].images.fixed_height_still.url)
+				.attr("src", response.data[x].images.original_still.url)
 				.css("border", "4px solid " + color)
-				.data("orig", response.data[x].images.fixed_height_still.url)
-				.data("gif", response.data[x].images.fixed_height.url)
+				.data("orig", response.data[x].images.original_still.url)
+				.data("gif", response.data[x].images.original.url)
 				.data("mode", "0")
 				.appendTo(wrapper);
 
@@ -176,7 +181,20 @@ function callAPI(epIndex, term) {
 				.text(response.data[x].rating.toUpperCase())
 				.appendTo(wrapper);
 
-			$("#results").append(wrapper);
+			let y = x % 3;
+
+			//assign to DOM by column
+
+			let id = "#res" + y;
+			$(id).append(wrapper);
+
+			// if (y===1) {
+			// 	$("#res0").append(wrapper);
+			// } else if (y===2) {
+			// 	$("#res1").append(wrapper);
+			// } else {
+			// 	$("#res2").append(wrapper);
+			// }
 		}
 		
 	}).fail(function(response) {
@@ -185,7 +203,7 @@ function callAPI(epIndex, term) {
 		
 		//display error message
 		$("#results").prepend($("<div>")
-			.addClass("alert alert-danger")
+			.addClass("alert alert-danger res-alert")
 			.attr("role", "alert")
 			.text("Search Error!"));
 
@@ -232,6 +250,8 @@ $(document).ready(function() {
 
 
 // FUTURE FUNCTIONALITY
+
+//scrollto results when using mobile or tablet browsers
 
 //allow users to set rating limit
 //allow users to set desired number of results
