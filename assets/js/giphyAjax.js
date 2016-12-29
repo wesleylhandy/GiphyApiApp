@@ -29,8 +29,8 @@ var parameters = ratingParam + limitParam;
 var queryURL = ""; //end point + search term + parameters + key
 
 //list for initial set of buttons
-var buttonList = ["fail", "coffee", "commercials", 
-				"vintage", "dramatic", "movies", 
+var buttonList = ["fail", "coffee", "why", 
+				"vintage", "dramatic", "nuke", 
 				"posterized", "homer+simpson", "win"];
 
 //render buttons
@@ -85,7 +85,7 @@ $(document).on("click", "#submit-button", function(event) {
 	} else {
 
 		//alert user
-		if (term === '' || term.match(/[^A-Za-z0-9]/)) {
+		if (term === '' || term.match(/[^A-Za-z0-9+]/)) {
 
 			//invalid entry alert
 			$("#search-form").append($("<div>")
